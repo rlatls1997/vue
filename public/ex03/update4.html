@@ -1,0 +1,41 @@
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    div#app { padding: 30px; margin: 30px auto; max-width: 300px; 
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa;  }
+    span { display: inline-block; margin: 5px; padding: 8px 15px; 
+      border: 1px solid black; cursor: pointer; }
+    div#app > div { margin-top: 20px; }
+    button { padding: 0.5em 2em; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <span v-for="i in a">
+      {{ i }}
+    </span>
+    <div>
+      <button type="button" v-on:click="increase">++</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        a: [ 0, 1, 2, 3, 4]
+      },
+      methods: {
+        increase() {
+          for (let i=0; i < this.a.length; ++i)
+            Vue.set(this.a, i, this.a[i] + 1);
+            //vue.set(배열,인덱스,값) => 배열의 인덱스위치에 값을 대입하라
+            //vue.set으로 값을 바꾸면 vue 엔진이 감지하기때문에 화면이 바뀜
+        }
+      }
+    })
+   </script>
+</body>    
+</html>

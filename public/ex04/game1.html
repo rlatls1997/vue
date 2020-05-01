@@ -1,0 +1,59 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    div { padding: 30px; margin: 30px auto; max-width: 600px; 
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; }
+    table { border-collapse: collapse; margin: 40px auto; }
+    td { width: 50px; height: 50px; border: 1px solid gray; font-size: 20pt; 
+      text-align: center; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <table>
+        <!--현재 matrix의 원소는 6개이다. row는 matrix의 원소의 값을 저장한다-->
+      <tr v-for="(row, index1) in matrix" v-bind:key="index1">
+          <!--value는 matrix의 각 배열원소의 원소이다. 
+            matrix의 각 원소는 원소가 6개인 배열로 이루어져있고
+            value는 그 값들을 하나씩 받는다-->
+        <td v-for="(value, index2) in row" v-bind:key="index2">
+          {{ value }}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        size: 6,
+        matrix: []
+      },
+      //created: function() {...}와 동일한 함수정의
+
+      /* 일반적인 방식인 method라는 속성의 객체안에 메소드가 정의된 방식
+      일반적인 메소드는 method속성 안에 구현한다.
+      method : {
+        getColor() {},
+        getTitle() {} ...
+      }
+      */
+
+      //일반적인 메소드와 다르게 created(), mounted()등은 
+      //method속성 밖에 구현하는 메소드 = lifecycle메소드
+      //created() 메소드는 앱객체가 생성되면 바로 메소드가 자동으로 호출된다.
+      //created() 메소도는 태그들이 생성되기 전 호출, mounted() 메소드는 태그들이 생성된 후 호ㅜㄹ
+      created() {
+        for (let r = 0; r < this.size; ++r) {
+          this.matrix[r] = [];
+          for (let c = 0; c < this.size; ++c) 
+            this.matrix[r][c] = r * this.size + c + 1;
+        }
+      }
+    })
+   </script>
+</body>    
+</html>

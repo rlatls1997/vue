@@ -1,0 +1,40 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    div#app { padding: 50px; margin: 30px auto; max-width: 300px; 
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; font-size: 11pt; }
+    button { padding: 0.5em 2em; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>value1: {{ value1 }}</h1>
+    <h1>value2: {{ value2 }}</h1>
+    <button type="button" v-on:click="changeValue1">value1 변경</button>
+    <button type="button" v-on:click="changeValue2">value2 변경</button>
+    <!--처음부터 만들어진 변수와 나중에 만들어진 변수의 값이 변할때
+    처음부터 만들어진 변수의 값이 변경될때: 화면 전체영역을 다시그림
+    나중에 만들어진 변수의 값이 변경될때: 값만 바꾸고 화면은 다시 그리지 않음
+    나중에 만들어진 변수는 vue엔진이 감지하지 못하기 때문-->
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        value1: 7
+      },
+      methods: {
+        changeValue1: function() {
+          this.value1++;
+        },
+        changeValue2: function() {
+          if (!this.value2) this.value2 = 0;
+          this.value2++;
+        }
+      }
+    })    
+   </script>
+</body>
+</html>
