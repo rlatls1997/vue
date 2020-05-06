@@ -7,7 +7,7 @@
       border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; font-size: 11pt; }
     input { width:13px; height : 13px; }
     label { font-size: 12pt; margin-right: 25px;}
-    div#gend { font-size: 30px;
+    div#gend { font-size: 30px; font-weight:bold;
        margin-top: 30px; }
   </style>
 </head>
@@ -21,7 +21,7 @@
         <input type="radio" value = "false" v-model="gender" v-on:click="onclick1" />
         여자
       </label>
-      <div id="gend" v-show="visible" >남자</div>
+      <div id="gend" v-show="visible"  >남자</div>
       <div id="gend" v-show="visible1" >여자</div>
     
   </div>
