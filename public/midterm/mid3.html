@@ -4,21 +4,20 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <style>
     div#app { padding: 30px; margin: 30px auto; 
-    height: 300px; max-width: 300px; 
+    height: 200px; max-width: 200px; 
       border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa;
       text-align : center;  }
-    
-    button {padding: 0.5em 2em;}
-    div#block { background-color:rgb(226, 231, 159); height:100px; width:100px;
-    margin: 50px auto; border: 1px solid black;
+    div#block { background-color:rgb(226, 231, 159);
+    margin: 50px; border: 1px solid black; 
         text-align:center; vertical-align: middle; font-size: 70px;
+        display:inline-block;
     }
     
   </style>
 </head>
 <body>
   <div id="app">
-      <div id="block" >a</div>
+    <div id="block" >{{a}}</div>
   </div>
 
   <script type="text/javascript">
@@ -30,8 +29,9 @@
       mounted : function() {
         this.startTime = new Date();
           this.timerId = setInterval(() => {
-            this.sec = ((new Date() - this.startTime) / 1000).toFixed(1);
+            this.a = ((new Date() - this.startTime) / 1000).toFixed(0);
           }, 100);
+        
 
       },
       methods: {
