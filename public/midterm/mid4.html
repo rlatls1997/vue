@@ -3,7 +3,7 @@
   <meta charset="utf-8" />
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <style>
-    div#app { padding: 50px; margin: 30px auto; max-width: 300px; 
+    div#app { padding: 50px; margin: 30px auto; max-width: 250px; 
       border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; font-size: 11pt; }
     input { width:13px; height : 13px; }
     label { font-size: 12pt; margin-right: 25px;}
@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <div id="app">
+  <div id="app" v-bind:style = "{backgroundColor : color()}">
     <label>
         <input type="radio" value = "true" v-model="gender" v-on:click="onclick"/>
         남자
@@ -21,8 +21,8 @@
         <input type="radio" value = "false" v-model="gender" v-on:click="onclick1" />
         여자
       </label>
-      <div id="gend" v-show="visible">남자</div>
-      <div id="gend" v-show="visible1">여자</div>
+      <div id="gend" v-show="visible" >남자</div>
+      <div id="gend" v-show="visible1" >여자</div>
     
   </div>
   <script type="text/javascript">
@@ -42,7 +42,14 @@
           onclick1(){
               this.visible1 = true;
               this.visible = false;
+          },
+          color(){
+            if(this.visible == true)
+                return "rgb(138, 162, 207)";
+            if(this.visible1 == true)
+                return "rgb(240, 183, 186)";
           }
+
         
      }
     })    

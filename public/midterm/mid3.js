@@ -9,7 +9,7 @@ function copy(a, b){
     }
 }
 for(let i = 0; i<3; i++){
-    a1[i] = [i, i+1];
+    a1[i] = [i*2, i*2+1];
 }
 let a2 = []
 copy(a2,a1);
