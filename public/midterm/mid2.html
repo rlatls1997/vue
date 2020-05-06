@@ -1,0 +1,49 @@
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    div#app {  margin: 30px auto; 
+     max-width: 200px; padding: 50px;
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa;
+      }
+    input {padding : 5px; margin-bottom: 20px; }
+    table { border-collapse: collapse;  }
+    tr { padding: 4px; border: 1px solid black; }
+
+    
+    
+  </style>
+</head>
+<body>
+  <div id="app">
+    
+    
+        <input type="text" v-model = "a"/>
+      <table>
+        
+      <tr v-for = "s in 9">
+          <td>
+          {{a}} x {{s}} = {{a*s}}
+        </td>
+      </tr>
+    
+    </table>
+    
+      
+    
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        a: "2",
+        
+      },
+      methods: {
+      }
+    })
+   </script>
+</body>    
+</html>
