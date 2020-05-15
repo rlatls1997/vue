@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    div#app { padding: 30px; margin: 30px auto; max-width: 400px;
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; }
+    input[type=text] { padding: 4px; }
+    pre { font-size: 20pt; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="message" />
+    <pre>[{{ message }}]</pre>
+     <!--html의 일반적인 태그의 줄바꿈문자나 공백문자들은
+    공백문자가 몇 개이든 상관없이 공백문자 한 개로 출력되지만
+    pre태그는 모든 공백문자와 줄바꿈문자가 그대로 출력된다.-->
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: ''
+      }
+    })
+   </script>
+</body>
+</html>
